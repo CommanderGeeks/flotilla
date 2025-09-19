@@ -12,20 +12,38 @@
         }
 
         :root {
-            --primary-color: #1a5f7a;
-            --secondary-color: #f4a261;
-            --dark-bg: #0a1929;
-            --text-light: #e8f4f8;
-            --accent-green: #2a9d8f;
-            --danger-red: #e76f51;
+            --primary-color: #CE1126;  /* Palestinian flag red */
+            --secondary-color: #007A3D; /* Palestinian flag green */
+            --dark-bg: #000000;         /* Palestinian flag black */
+            --text-light: #f5f5f5;      /* Clean white/off-white */
+            --accent-green: #4CAF50;    /* Brighter green accent */
+            --danger-red: #8B0000;      /* Deep blood red */
+            --wave-blue: #1e3a5f;       /* Deep ocean blue */
+            --gold-accent: #FFD700;     /* Golden highlights */
+            --gray-bg: #1a1a1a;         /* Dark gray for backgrounds */
         }
 
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #0a1929 0%, #1a5f7a 100%);
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 40%, #2c2c2c 100%);
             color: var(--text-light);
             overflow-x: hidden;
             min-height: 100vh;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(206, 17, 38, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(0, 122, 61, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 1;
         }
 
         /* Lightning Animation */
@@ -52,8 +70,8 @@
             height: 100%;
             pointer-events: none;
             z-index: 1;
-            opacity: 0.1;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M20 10 L30 40 L25 40 L35 70 L30 45 L35 45 L25 15 Z" fill="%23f4a261" opacity="0.3"/></svg>') no-repeat center;
+            opacity: 0.05;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M20 10 L30 40 L25 40 L35 70 L30 45 L35 45 L25 15 Z" fill="%23CE1126" opacity="0.3"/></svg>') no-repeat center;
             animation: lightning 8s infinite;
         }
 
@@ -62,37 +80,41 @@
             z-index: 10;
             text-align: center;
             padding: 3rem 1rem;
-            background: rgba(10, 25, 41, 0.9);
-            border-bottom: 3px solid var(--secondary-color);
-            box-shadow: 0 5px 30px rgba(244, 162, 97, 0.3);
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(26, 26, 26, 0.9));
+            border-bottom: 4px solid;
+            border-image: linear-gradient(90deg, var(--primary-color), var(--dark-bg), var(--secondary-color)) 1;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
         }
 
         h1 {
             font-size: 3.5rem;
             text-transform: uppercase;
             letter-spacing: 3px;
-            background: linear-gradient(45deg, var(--secondary-color), #fff);
+            background: linear-gradient(90deg, var(--primary-color), #fff, var(--secondary-color));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: pulse 3s infinite;
             margin-bottom: 1rem;
+            filter: drop-shadow(0 2px 10px rgba(206, 17, 38, 0.5));
         }
 
         .tagline {
             font-size: 1.3rem;
-            color: var(--accent-green);
+            color: var(--text-light);
             font-style: italic;
             letter-spacing: 1px;
+            opacity: 0.9;
         }
 
         nav {
             position: sticky;
             top: 0;
             z-index: 100;
-            background: rgba(26, 95, 122, 0.95);
+            background: linear-gradient(90deg, rgba(206, 17, 38, 0.95), rgba(0, 0, 0, 0.95), rgba(0, 122, 61, 0.95));
             backdrop-filter: blur(10px);
             padding: 1rem;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.5);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.8);
         }
 
         nav ul {
@@ -115,10 +137,10 @@
         }
 
         nav a:hover {
-            border-color: var(--secondary-color);
-            color: var(--secondary-color);
+            border-color: var(--primary-color);
+            color: var(--primary-color);
             transform: translateY(-2px);
-            text-shadow: 0 2px 10px rgba(244, 162, 97, 0.5);
+            text-shadow: 0 2px 10px rgba(206, 17, 38, 0.5);
         }
 
         .container {
@@ -132,18 +154,22 @@
         .hero-section {
             text-align: center;
             padding: 4rem 0;
-            background: linear-gradient(135deg, rgba(42, 157, 143, 0.1), rgba(244, 162, 97, 0.1));
+            background: linear-gradient(135deg, rgba(206, 17, 38, 0.05), rgba(0, 0, 0, 0.2), rgba(0, 122, 61, 0.05));
             border-radius: 20px;
             margin: 2rem 0;
             backdrop-filter: blur(5px);
             animation: float 6s ease-in-out infinite;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .hero-section h2 {
             font-size: 2.5rem;
             margin-bottom: 1.5rem;
-            color: var(--secondary-color);
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+            color: var(--text-light);
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+            background: linear-gradient(90deg, var(--primary-color), var(--text-light), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .hero-section p {
@@ -151,34 +177,36 @@
             line-height: 1.8;
             max-width: 800px;
             margin: 0 auto 2rem;
-            color: #b8d4e3;
+            color: #e0e0e0;
         }
 
         .mission-statement {
-            background: rgba(231, 111, 81, 0.1);
-            border-left: 5px solid var(--danger-red);
+            background: linear-gradient(135deg, rgba(206, 17, 38, 0.1), rgba(0, 0, 0, 0.3));
+            border-left: 5px solid var(--primary-color);
             padding: 2rem;
             margin: 3rem 0;
             border-radius: 10px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
         }
 
         .mission-statement h3 {
-            color: var(--secondary-color);
+            color: var(--text-light);
             font-size: 2rem;
             margin-bottom: 1rem;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
         }
 
         .hero-card {
-            background: linear-gradient(135deg, rgba(26, 95, 122, 0.3), rgba(10, 25, 41, 0.8));
-            border: 2px solid var(--accent-green);
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.8), rgba(0, 0, 0, 0.9));
+            border: 2px solid;
+            border-image: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) 1;
             border-radius: 15px;
             padding: 2rem;
             margin: 2rem 0;
             position: relative;
             overflow: hidden;
             transition: all 0.3s;
-            box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 5px 30px rgba(0,0,0,0.7);
             display: flex;
             gap: 2rem;
             align-items: center;
@@ -190,9 +218,10 @@
             height: 250px;
             border-radius: 10px;
             overflow: hidden;
-            border: 3px solid var(--secondary-color);
-            box-shadow: 0 5px 20px rgba(244, 162, 97, 0.3);
-            background: linear-gradient(135deg, rgba(244, 162, 97, 0.2), rgba(42, 157, 143, 0.2));
+            border: 3px solid;
+            border-image: linear-gradient(45deg, var(--primary-color), var(--secondary-color)) 1;
+            box-shadow: 0 5px 20px rgba(206, 17, 38, 0.3);
+            background: linear-gradient(135deg, rgba(206, 17, 38, 0.1), rgba(0, 122, 61, 0.1));
             display: flex;
             align-items: center;
             justify-content: center;
@@ -234,7 +263,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(244, 162, 97, 0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(206, 17, 38, 0.2), transparent);
             transition: left 0.5s;
         }
 
@@ -244,28 +273,30 @@
 
         .hero-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 50px rgba(42, 157, 143, 0.3);
-            border-color: var(--secondary-color);
+            box-shadow: 0 10px 50px rgba(206, 17, 38, 0.3);
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.9), rgba(206, 17, 38, 0.1));
         }
 
         .hero-name {
-            color: var(--secondary-color);
+            color: var(--text-light);
             font-size: 1.8rem;
             margin-bottom: 0.5rem;
             text-transform: uppercase;
             letter-spacing: 2px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
         }
 
         .hero-title {
-            color: var(--accent-green);
+            color: var(--secondary-color);
             font-size: 1.3rem;
             font-style: italic;
             margin-bottom: 1rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
         }
 
         .hero-power {
-            background: rgba(244, 162, 97, 0.1);
-            border-left: 3px solid var(--secondary-color);
+            background: rgba(206, 17, 38, 0.1);
+            border-left: 3px solid var(--primary-color);
             padding: 0.5rem 1rem;
             margin: 1rem 0;
             border-radius: 5px;
@@ -273,7 +304,7 @@
 
         .hero-description {
             line-height: 1.6;
-            color: #b8d4e3;
+            color: #d0d0d0;
             margin-top: 1rem;
         }
 
@@ -285,24 +316,25 @@
         }
 
         .stat-card {
-            background: rgba(42, 157, 143, 0.2);
+            background: linear-gradient(135deg, rgba(0, 122, 61, 0.2), rgba(0, 0, 0, 0.5));
             padding: 1.5rem;
             border-radius: 10px;
             text-align: center;
-            border: 2px solid var(--accent-green);
+            border: 2px solid var(--secondary-color);
             transition: transform 0.3s;
         }
 
         .stat-card:hover {
             transform: scale(1.05);
-            background: rgba(42, 157, 143, 0.3);
+            background: linear-gradient(135deg, rgba(0, 122, 61, 0.3), rgba(206, 17, 38, 0.1));
+            border-color: var(--primary-color);
         }
 
         .stat-number {
             font-size: 3rem;
-            color: var(--secondary-color);
+            color: var(--primary-color);
             font-weight: bold;
-            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
         }
 
         .stat-label {
@@ -314,16 +346,17 @@
         .cta-section {
             text-align: center;
             padding: 3rem;
-            background: linear-gradient(135deg, rgba(231, 111, 81, 0.2), rgba(244, 162, 97, 0.2));
+            background: linear-gradient(135deg, rgba(206, 17, 38, 0.15), rgba(0, 0, 0, 0.4), rgba(0, 122, 61, 0.15));
             border-radius: 20px;
             margin: 3rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .cta-button {
             display: inline-block;
             padding: 1rem 3rem;
-            background: var(--secondary-color);
-            color: var(--dark-bg);
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            color: var(--text-light);
             text-decoration: none;
             font-size: 1.2rem;
             font-weight: bold;
@@ -331,21 +364,22 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: all 0.3s;
-            box-shadow: 0 5px 20px rgba(244, 162, 97, 0.3);
+            box-shadow: 0 5px 20px rgba(206, 17, 38, 0.4);
         }
 
         .cta-button:hover {
-            background: var(--accent-green);
+            background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(42, 157, 143, 0.4);
+            box-shadow: 0 10px 30px rgba(0, 122, 61, 0.4);
         }
 
         footer {
-            background: rgba(10, 25, 41, 0.95);
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(26, 26, 26, 0.95));
             text-align: center;
             padding: 2rem;
             margin-top: 3rem;
-            border-top: 3px solid var(--secondary-color);
+            border-top: 4px solid;
+            border-image: linear-gradient(90deg, var(--primary-color), var(--dark-bg), var(--secondary-color)) 1;
         }
 
         .wave-animation {
@@ -354,7 +388,7 @@
             left: 0;
             width: 100%;
             height: 100px;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 100"><path d="M0,50 Q300,0 600,50 T1200,50 L1200,100 L0,100 Z" fill="%231a5f7a" opacity="0.5"/></svg>') repeat-x;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 100"><path d="M0,50 Q300,0 600,50 T1200,50 L1200,100 L0,100 Z" fill="%23007A3D" opacity="0.3"/></svg>') repeat-x;
             animation: float 10s infinite;
             z-index: 0;
         }
