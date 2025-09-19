@@ -179,6 +179,51 @@
             overflow: hidden;
             transition: all 0.3s;
             box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .hero-image-container {
+            flex-shrink: 0;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--secondary-color);
+            box-shadow: 0 5px 20px rgba(244, 162, 97, 0.3);
+            background: linear-gradient(135deg, rgba(244, 162, 97, 0.2), rgba(42, 157, 143, 0.2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .hero-card:hover .hero-image {
+            transform: scale(1.1);
+        }
+
+        .hero-content {
+            flex-grow: 1;
+        }
+
+        .hero-image-placeholder {
+            width: 80%;
+            height: 80%;
+            background: linear-gradient(135deg, var(--secondary-color), var(--accent-green));
+            opacity: 0.3;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--text-light);
         }
 
         .hero-card::before {
@@ -313,6 +358,18 @@
             z-index: 0;
         }
 
+        @media (max-width: 968px) {
+            .hero-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-image-container {
+                width: 150px;
+                height: 150px;
+            }
+        }
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 2rem;
@@ -350,6 +407,10 @@
     <div class="container">
         <section id="mission" class="hero-section">
             <h2>The Armada Sails On</h2>
+            <!-- Hero banner image -->
+            <div style="margin: 2rem 0;">
+                <img src="images/flotilla-banner.jpg" alt="Freedom Flotilla Ships" style="width: 100%; max-width: 800px; height: auto; border-radius: 10px; box-shadow: 0 5px 30px rgba(0,0,0,0.3);" onerror="this.style.display='none'">
+            </div>
             <p>
                 Together, five extraordinary leaders command an armada representing humanity's last stand against normalized genocide. 
                 This is the boldest humanitarian civil society mission in recent history, destined to take its place alongside 
@@ -399,78 +460,108 @@
             </h2>
 
             <div class="hero-card">
-                <h3 class="hero-name">Greta Thunberg</h3>
-                <p class="hero-title">"The Storm Prophet"</p>
-                <div class="hero-power">
-                    <strong>Powers:</strong> Commanding the fury of a dying planet and the hope of a rising generation
+                <div class="hero-image-container">
+                    <img src="images/greta-thunberg.jpg" alt="Greta Thunberg" class="hero-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="hero-image-placeholder" style="display:none;">GT</div>
                 </div>
-                <p class="hero-description">
-                    She who summoned millions to march for Earth's climate now summons fleets to sail for Gaza's children. 
-                    At just 22, this Swedish force of nature has evolved from climate crusader to universal defender of life itself. 
-                    As a steering committee member of the Global Sumud Flotilla, each arrest only amplifies her power. 
-                    Her superpower transcends mere activism: she channels the rage of melting glaciers into solidarity with burning cities, 
-                    connecting environmental collapse to human genocide. When she speaks, prime ministers tremble and corporations crumble. 
-                    She doesn't just sail through storms... she IS the storm that no blockade can weather.
-                </p>
+                <div class="hero-content">
+                    <h3 class="hero-name">Greta Thunberg</h3>
+                    <p class="hero-title">"The Storm Prophet"</p>
+                    <div class="hero-power">
+                        <strong>Powers:</strong> Commanding the fury of a dying planet and the hope of a rising generation
+                    </div>
+                    <p class="hero-description">
+                        She who summoned millions to march for Earth's climate now summons fleets to sail for Gaza's children. 
+                        At just 22, this Swedish force of nature has evolved from climate crusader to universal defender of life itself. 
+                        As a steering committee member of the Global Sumud Flotilla, each arrest only amplifies her power. 
+                        Her superpower transcends mere activism: she channels the rage of melting glaciers into solidarity with burning cities, 
+                        connecting environmental collapse to human genocide. When she speaks, prime ministers tremble and corporations crumble. 
+                        She doesn't just sail through storms... she IS the storm that no blockade can weather.
+                    </p>
+                </div>
             </div>
 
             <div class="hero-card">
-                <h3 class="hero-name">Liam Cunningham</h3>
-                <p class="hero-title">"The Keeper of Lost Voices"</p>
-                <div class="hero-power">
-                    <strong>Powers:</strong> Resurrecting the silenced and making the world weep for those it forgot
+                <div class="hero-image-container">
+                    <img src="images/liam-cunningham.jpg" alt="Liam Cunningham" class="hero-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="hero-image-placeholder" style="display:none;">LC</div>
                 </div>
-                <p class="hero-description">
-                    From the fictional shores of Westeros to the real waters of Palestine, this Irish titan transforms storytelling into revolution. 
-                    At press conferences, his voice breaks as he shares videos of Palestinian children planning their own funerals, 
-                    asking humanity: "What sort of human hole have we found ourselves in?" His superpower: making the comfortable uncomfortable, 
-                    using his Game of Thrones fame as a battering ram against indifference. Each word he speaks carries the weight of children 
-                    who will never grow old, each tear he sheds floods the conscience of nations.
-                </p>
+                <div class="hero-content">
+                    <h3 class="hero-name">Liam Cunningham</h3>
+                    <p class="hero-title">"The Keeper of Lost Voices"</p>
+                    <div class="hero-power">
+                        <strong>Powers:</strong> Resurrecting the silenced and making the world weep for those it forgot
+                    </div>
+                    <p class="hero-description">
+                        From the fictional shores of Westeros to the real waters of Palestine, this Irish titan transforms storytelling into revolution. 
+                        At press conferences, his voice breaks as he shares videos of Palestinian children planning their own funerals, 
+                        asking humanity: "What sort of human hole have we found ourselves in?" His superpower: making the comfortable uncomfortable, 
+                        using his Game of Thrones fame as a battering ram against indifference. Each word he speaks carries the weight of children 
+                        who will never grow old, each tear he sheds floods the conscience of nations.
+                    </p>
+                </div>
             </div>
 
             <div class="hero-card">
-                <h3 class="hero-name">Susan Sarandon</h3>
-                <p class="hero-title">"The Hollywood Rebel Queen"</p>
-                <div class="hero-power">
-                    <strong>Powers:</strong> Transforming celebrity into revolutionary force
+                <div class="hero-image-container">
+                    <img src="images/susan-sarandon.jpg" alt="Susan Sarandon" class="hero-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="hero-image-placeholder" style="display:none;">SS</div>
                 </div>
-                <p class="hero-description">
-                    For decades, she has been Hollywood's conscience, refusing to separate art from justice. Now in her 70s, 
-                    this Academy Award winner proves that revolution has no retirement age. Her superpower: weaponizing fame against fascism, 
-                    making resistance glamorous and rebellion mainstream. Every red carpet she's walked has led to this moment—sailing toward Gaza 
-                    with the same determination she brought to "Thelma & Louise," except this time she's not driving off a cliff but toward liberation.
-                </p>
+                <div class="hero-content">
+                    <h3 class="hero-name">Susan Sarandon</h3>
+                    <p class="hero-title">"The Hollywood Rebel Queen"</p>
+                    <div class="hero-power">
+                        <strong>Powers:</strong> Transforming celebrity into revolutionary force
+                    </div>
+                    <p class="hero-description">
+                        For decades, she has been Hollywood's conscience, refusing to separate art from justice. Now in her 70s, 
+                        this Academy Award winner proves that revolution has no retirement age. Her superpower: weaponizing fame against fascism, 
+                        making resistance glamorous and rebellion mainstream. Every red carpet she's walked has led to this moment—sailing toward Gaza 
+                        with the same determination she brought to "Thelma & Louise," except this time she's not driving off a cliff but toward liberation.
+                    </p>
+                </div>
             </div>
 
             <div class="hero-card">
-                <h3 class="hero-name">Mandla Mandela</h3>
-                <p class="hero-title">"The Legacy Lightning"</p>
-                <div class="hero-power">
-                    <strong>Powers:</strong> Channeling ancestral resistance across continents and centuries
+                <div class="hero-image-container">
+                    <img src="images/mandla-mandela.jpg" alt="Mandla Mandela" class="hero-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="hero-image-placeholder" style="display:none;">MM</div>
                 </div>
-                <p class="hero-description">
-                    The grandson of Nelson Mandela carries more than just a surname—he carries the electromagnetic charge of history itself. 
-                    Zwelivelile Mandela joined the Global Sumud Flotilla, creating an unbreakable link between Soweto and Gaza, 
-                    between apartheid past and apartheid present. His superpower: making the struggles of different peoples into one unified force. 
-                    When he stands on deck, he doesn't stand alone. Behind him stand the ghosts of Robben Island, the spirits of Sharpeville, 
-                    the ancestors who fought colonialism across Africa.
-                </p>
+                <div class="hero-content">
+                    <h3 class="hero-name">Mandla Mandela</h3>
+                    <p class="hero-title">"The Legacy Lightning"</p>
+                    <div class="hero-power">
+                        <strong>Powers:</strong> Channeling ancestral resistance across continents and centuries
+                    </div>
+                    <p class="hero-description">
+                        The grandson of Nelson Mandela carries more than just a surname—he carries the electromagnetic charge of history itself. 
+                        Zwelivelile Mandela joined the Global Sumud Flotilla, creating an unbreakable link between Soweto and Gaza, 
+                        between apartheid past and apartheid present. His superpower: making the struggles of different peoples into one unified force. 
+                        When he stands on deck, he doesn't stand alone. Behind him stand the ghosts of Robben Island, the spirits of Sharpeville, 
+                        the ancestors who fought colonialism across Africa.
+                    </p>
+                </div>
             </div>
 
             <div class="hero-card">
-                <h3 class="hero-name">Thiago Ávila</h3>
-                <p class="hero-title">"The Earth Defender"</p>
-                <div class="hero-power">
-                    <strong>Powers:</strong> Uniting the struggles of land, sea, and oppressed peoples worldwide
+                <div class="hero-image-container">
+                    <img src="images/thiago-avila.jpg" alt="Thiago Ávila" class="hero-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="hero-image-placeholder" style="display:none;">TA</div>
                 </div>
-                <p class="hero-description">
-                    For over 20 years, this Brazilian socio-environmentalist has traveled the globe fighting exploitation. 
-                    A Freedom Flotilla Coalition Steering Committee member who endured solitary confinement after exposing Israeli crimes. 
-                    His superpower: connecting every struggle into one—from Amazon deforestation to Gaza's destruction, 
-                    from indigenous rights in Brazil to Palestinian liberation. His hunger strikes become weapons more powerful than missiles, 
-                    his imprisonment becomes testimony more damning than any court.
-                </p>
+                <div class="hero-content">
+                    <h3 class="hero-name">Thiago Ávila</h3>
+                    <p class="hero-title">"The Earth Defender"</p>
+                    <div class="hero-power">
+                        <strong>Powers:</strong> Uniting the struggles of land, sea, and oppressed peoples worldwide
+                    </div>
+                    <p class="hero-description">
+                        For over 20 years, this Brazilian socio-environmentalist has traveled the globe fighting exploitation. 
+                        A Freedom Flotilla Coalition Steering Committee member who endured solitary confinement after exposing Israeli crimes. 
+                        His superpower: connecting every struggle into one—from Amazon deforestation to Gaza's destruction, 
+                        from indigenous rights in Brazil to Palestinian liberation. His hunger strikes become weapons more powerful than missiles, 
+                        his imprisonment becomes testimony more damning than any court.
+                    </p>
+                </div>
             </div>
         </section>
 
